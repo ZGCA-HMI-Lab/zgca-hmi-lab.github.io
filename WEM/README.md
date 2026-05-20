@@ -22,14 +22,13 @@ The page presents the paper overview, method, benchmark, quantitative tables, qu
 - `static/js/` - local page interactions and icon support.
 - `static/images/` - WEM figures, preview images, and video posters.
 - `static/videos/` - teaser and qualitative result videos.
-- `static/pdfs/` - paper and supplementary material.
+- `static/pdfs/` - optional local paper and supplementary files; the current page links to arXiv.
 
 ## Assets To Add
 
 The page currently expects these WEM assets:
 
 - `static/images/teaser.png`
-- `static/images/social_preview.png`
 - `static/images/framework.png`
 - `static/images/model.png`
 - `static/images/dataset.png`
@@ -39,10 +38,8 @@ The page currently expects these WEM assets:
 - `static/videos/pick_up_trash_can.mov`
 - `static/videos/kitchen.mov`
 - `static/videos/get_trash_bin.mov`
-- `static/pdfs/paper.pdf`
-- `static/pdfs/supplementary_material.pdf`
 
-Update the anonymous author, institution, submission, code, and dataset placeholders in `index.html` when the public information is ready.
+The paper link currently points to arXiv: https://arxiv.org/abs/2605.19957. Keep private code, model, and dataset links as-is until those resources are public.
 
 ## Local Preview
 
