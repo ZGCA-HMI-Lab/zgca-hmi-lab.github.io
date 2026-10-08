@@ -5,43 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Primary Meta Tags -->
-  <meta name="title" content="World-Ego Modeling for Long-Horizon Evolution in Hybrid Embodied Tasks">
-  <meta name="description" content="World-Ego Modeling decomposes embodied video world modeling into persistent world evolution and robot-centric ego dynamics for long-horizon hybrid tasks.">
+  <meta name="title" content="World-Ego Modeling for Embodied Video Generation in Long-Horizon Navigation-Manipulation Tasks">
+  <meta name="description" content="WEM separates world and ego conditioning with a vision-language state predictor and specializes video generation with SR-MoE for long-horizon navigation-manipulation tasks.">
   <meta name="keywords" content="World-Ego Modeling, WEM, HTEWorld, embodied world models, video world models, long-horizon generation, navigation, manipulation, robotics, computer vision">
-  <meta name="author" content="Zuyao Lin, Jianhui Zhang, Peidong Jia, Xiaoguang Zhao, Shanghang Zhang, Xingyu Chen">
+  <meta name="author" content="Zuyao Lin, Jianhui Zhang, Peidong Jia, Xiaoguang Zhao, Shanghang Zhang, Jingdong Wang, Xingyu Chen">
   <meta name="robots" content="index, follow">
   <meta name="language" content="English">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="World-Ego Modeling Project Page">
-  <meta property="og:title" content="World-Ego Modeling for Long-Horizon Evolution in Hybrid Embodied Tasks">
-  <meta property="og:description" content="WEM separates persistent world regularities from robot-centric ego dynamics for long-horizon hybrid navigation-manipulation world modeling.">
+  <meta property="og:title" content="World-Ego Modeling for Embodied Video Generation in Long-Horizon Navigation-Manipulation Tasks">
+  <meta property="og:description" content="WEM separates world and ego conditioning with a vision-language state predictor and specializes video generation with SR-MoE for long-horizon navigation-manipulation tasks.">
   <meta property="og:url" content="https://zgca-hmi-lab.github.io/WEM/">
   <meta property="og:image" content="https://zgca-hmi-lab.github.io/WEM/static/images/teaser.png">
-  <meta property="og:image:width" content="2158">
-  <meta property="og:image:height" content="708">
+  <meta property="og:image:width" content="6265">
+  <meta property="og:image:height" content="3162">
   <meta property="og:image:alt" content="World-Ego Modeling project preview">
-  <meta property="article:published_time" content="2026-01-01T00:00:00.000Z">
-  <meta property="article:author" content="Zuyao Lin, Jianhui Zhang, Peidong Jia, Xiaoguang Zhao, Shanghang Zhang, Xingyu Chen">
+  <meta property="article:author" content="Zuyao Lin, Jianhui Zhang, Peidong Jia, Xiaoguang Zhao, Shanghang Zhang, Jingdong Wang, Xingyu Chen">
   <meta property="article:section" content="Research">
   <meta property="article:tag" content="World-Ego Modeling">
   <meta property="article:tag" content="Embodied World Models">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="World-Ego Modeling for Long-Horizon Evolution in Hybrid Embodied Tasks">
-  <meta name="twitter:description" content="WEM separates persistent world regularities from robot-centric ego dynamics for long-horizon hybrid navigation-manipulation world modeling.">
+  <meta name="twitter:title" content="World-Ego Modeling for Embodied Video Generation in Long-Horizon Navigation-Manipulation Tasks">
+  <meta name="twitter:description" content="WEM separates world and ego conditioning with a vision-language state predictor and specializes video generation with SR-MoE for long-horizon navigation-manipulation tasks.">
   <meta name="twitter:image" content="https://zgca-hmi-lab.github.io/WEM/static/images/teaser.png">
   <meta name="twitter:image:alt" content="World-Ego Modeling project preview">
 
   <!-- Academic/Research Specific -->
-  <meta name="citation_title" content="World-Ego Modeling for Long-Horizon Evolution in Hybrid Embodied Tasks">
+  <meta name="citation_title" content="World-Ego Modeling for Embodied Video Generation in Long-Horizon Navigation-Manipulation Tasks">
   <meta name="citation_author" content="Zuyao Lin">
   <meta name="citation_author" content="Jianhui Zhang">
   <meta name="citation_author" content="Peidong Jia">
   <meta name="citation_author" content="Xiaoguang Zhao">
   <meta name="citation_author" content="Shanghang Zhang">
+  <meta name="citation_author" content="Jingdong Wang">
   <meta name="citation_author" content="Xingyu Chen">
   <meta name="citation_publication_date" content="2026">
   <meta name="citation_conference_title" content="arXiv">
@@ -58,7 +58,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <title>World-Ego Modeling for Long-Horizon Evolution in Hybrid Embodied Tasks</title>
+  <title>World-Ego Modeling for Embodied Video Generation in Long-Horizon Navigation-Manipulation Tasks</title>
   <link rel="canonical" href="https://zgca-hmi-lab.github.io/WEM/">
 
   <!-- Critical CSS -->
@@ -77,33 +77,60 @@
 
   <!-- Structured Data for Academic Papers -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ScholarlyArticle",
-    "headline": "World-Ego Modeling for Long-Horizon Evolution in Hybrid Embodied Tasks",
-    "description": "World-Ego Modeling decomposes embodied video world modeling into persistent world evolution and robot-centric ego dynamics for long-horizon hybrid navigation-manipulation tasks.",
-    "author": [
-      {"@type": "Person", "name": "Zuyao Lin"},
-      {"@type": "Person", "name": "Jianhui Zhang"},
-      {"@type": "Person", "name": "Peidong Jia"},
-      {"@type": "Person", "name": "Xiaoguang Zhao"},
-      {"@type": "Person", "name": "Shanghang Zhang"},
-      {"@type": "Person", "name": "Xingyu Chen"}
-    ],
-    "datePublished": "2026-01-01",
-    "publisher": {
-      "@type": "Organization",
-      "name": "arXiv"
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "World-Ego Modeling for Embodied Video Generation in Long-Horizon Navigation-Manipulation Tasks",
+  "description": "WEM separates world and ego conditioning with a vision-language state predictor and specializes video generation with SR-MoE for long-horizon navigation-manipulation tasks.",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Zuyao Lin"
     },
-    "url": "https://zgca-hmi-lab.github.io/WEM/",
-    "image": "https://zgca-hmi-lab.github.io/WEM/static/images/teaser.png",
-    "identifier": "arXiv:2605.19957",
-    "sameAs": "https://arxiv.org/abs/2605.19957",
-    "keywords": ["World-Ego Modeling", "WEM", "HTEWorld", "Embodied World Models", "Video World Models"],
-    "abstract": "World-Ego Modeling decomposes future embodied video evolution into persistent world regularities and robot-centric ego dynamics, and instantiates this paradigm as WEM for long-horizon hybrid navigation-manipulation tasks.",
-    "isAccessibleForFree": true,
-    "license": "https://creativecommons.org/licenses/by-sa/4.0/"
-  }
+    {
+      "@type": "Person",
+      "name": "Jianhui Zhang"
+    },
+    {
+      "@type": "Person",
+      "name": "Peidong Jia"
+    },
+    {
+      "@type": "Person",
+      "name": "Xiaoguang Zhao"
+    },
+    {
+      "@type": "Person",
+      "name": "Shanghang Zhang"
+    },
+    {
+      "@type": "Person",
+      "name": "Jingdong Wang"
+    },
+    {
+      "@type": "Person",
+      "name": "Xingyu Chen"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "name": "arXiv"
+  },
+  "url": "https://zgca-hmi-lab.github.io/WEM/",
+  "image": "https://zgca-hmi-lab.github.io/WEM/static/images/teaser.png",
+  "identifier": "arXiv:2605.19957",
+  "sameAs": "https://arxiv.org/abs/2605.19957",
+  "keywords": [
+    "World-Ego Modeling",
+    "WEM",
+    "HTEWorld",
+    "Embodied World Models",
+    "Video World Models"
+  ],
+  "abstract": "Embodied video world models typically capture both scene evolution and the robot's behavior, which we refer to as the world and the ego, respectively. The world and the ego exhibit different underlying dynamics: world prediction relies primarily on visual history and emphasizes scene stability, whereas ego prediction relies more strongly on the current instruction and emphasizes accurate instruction following. Modeling both components within a single generation stream can entangle these different dependencies, making it difficult to specialize the prediction of either component. Consequently, it becomes difficult to simultaneously maintain scene consistency and accurate instruction following, particularly in long-horizon navigation-manipulation tasks. In this paper, we propose to decompose an embodied video into the world and the ego and disentangle their generation processes. Specifically, we define the world as the background and currently unmanipulated objects, and the ego as the robot and currently manipulated objects. Based on this definition, we develop the World-Ego Model (WEM), which combines a vision-language state predictor using role-conditioned attention (RCA) and asymmetric query budgets with a semantic-routed mixture-of-experts (SR-MoE) diffusion generator. To enable rigorous evaluation, we further construct HTEWorld, a dataset and benchmark for long-horizon embodied video generation with hybrid navigation-manipulation tasks, providing 125K training video clips comprising over 4.5M frames with fine-grained instructions, together with 300 multi-turn evaluation trajectories covering over 2K instructions. Extensive experiments show that WEM achieves state-of-the-art performance on HTEWorld while remaining competitive on existing manipulation-oriented evaluations.",
+  "isAccessibleForFree": true,
+  "license": "https://creativecommons.org/licenses/by-sa/4.0/"
+}
   </script>
 
   <!-- WEM-specific lightweight style overrides. -->
@@ -402,6 +429,67 @@
         flex-direction: column;
       }
     }
+
+    .paper-figure { margin-left: 0; margin-right: 0; }
+    .paper-figure img { display: block; width: 100%; height: auto; }
+    #results > .container { width: 100%; max-width: 1400px; }
+    .benchmark-pair { display: grid; grid-template-columns: 1.25fr 1fr; gap: 2rem; align-items: start; }
+    .benchmark-pair > div { min-width: 0; }
+    .benchmark-pair .table-note { min-height: 3rem; }
+    .hteworld-table { min-width: 1260px; font-variant-numeric: tabular-nums; }
+    .hteworld-table tbody th { text-align: left; white-space: nowrap; font-weight: 500; }
+    .hteworld-table th, .hteworld-table td { padding: .7rem .55rem; }
+    .comparison-table { font-size: .9rem; font-variant-numeric: tabular-nums; }
+    .comparison-table tbody th { font-weight: 500; }
+    .comparison-table th, .comparison-table td { padding: .7rem .65rem; }
+    .comparison-table th:last-child, .comparison-table td:last-child { text-align: right; white-space: nowrap; }
+    .ours-row th { font-weight: 700 !important; }
+    .table-container:focus-visible { outline: 2px solid var(--wem-accent); outline-offset: 3px; }
+    @media screen and (max-width: 768px) {
+      .benchmark-pair { grid-template-columns: 1fr; gap: 2rem; }
+      .benchmark-pair .table-note { min-height: 0; }
+      .content.has-text-justified { text-align: left !important; }
+      .comparison-table { font-size: .8rem; }
+    }
+
+    /* A quieter editorial layout, with a consistent indigo accent. */
+    .section { padding-top: 4rem; padding-bottom: 4rem; }
+    .section .title.is-3 { color: #26324b !important; letter-spacing: -.025em; }
+    .hero-main { background: linear-gradient(180deg, #f7f8ff 0%, #fff 85%); }
+    .hero.is-light { background-color: #f7f8fc; }
+    .highlights-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; margin-top: 2.25rem; }
+    .highlight-card { padding: 1.7rem; border: 1px solid #e4e7f1; border-radius: 18px; background: linear-gradient(145deg, #f8f9ff, #fff 65%); }
+    .highlight-number { display: inline-flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; border-radius: 12px; color: #5363b8; background: #eaeefe; font-size: .85rem; font-weight: 700; margin-bottom: 1.25rem; }
+    .highlight-card h3 { font-weight: 700; font-size: 1.12rem; margin-bottom: .75rem; color: #26324b; }
+    .highlight-card p { font-size: .95rem; line-height: 1.75; color: #526077; }
+    .simple-card { padding: 1.5rem; border-color: #e4e7f1; border-radius: 18px; box-shadow: 0 5px 20px #27375604; }
+    .paper-figure { padding: 1rem; background: #fff; border: 1px solid #e8eaf2; border-radius: 18px; }
+    .paper-figure .figure-caption { font-size: .92rem; padding: 0 .5rem .5rem; }
+    .benchmark-panel { padding: 1.5rem; border: 1px solid #e2e6f0; border-radius: 18px; background: #fff; box-shadow: 0 6px 24px #26324b05; }
+    .benchmark-panel > .title { font-size: 1.18rem; color: #344477; margin-bottom: .65rem; }
+    .benchmark-panel > .table-note { max-width: none; text-align: left; font-size: .87rem; }
+    .benchmark-panel > .table-note:last-child { margin-top: 1rem; margin-bottom: 0; }
+    .benchmark-pair { gap: 1.5rem; }
+    .table-container { margin-bottom: 0; border-color: #e6e9f2; border-radius: 10px; }
+    .table { margin-bottom: 0; }
+    .table thead th { background: #f4f6fb; font-weight: 600; }
+    .table td, .table tbody th { border-color: #edf0f5; }
+    .table tbody tr:last-child td, .table tbody tr:last-child th { border-bottom: 0; }
+    .ours-row { background: #edf0ff; }
+    .ours-row th, .ours-row strong { color: #4355a5; }
+    .video-card { border-color: #e4e7f1; box-shadow: 0 4px 20px #26324b04; }
+    @media screen and (max-width: 900px) {
+      .highlights-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .highlight-card { padding: 1.4rem; }
+      .highlight-number { float: left; margin: 0 1rem .5rem 0; }
+      .highlight-card h3 { padding-top: .45rem; margin-bottom: 1rem; }
+      .highlight-card p { clear: both; }
+    }
+    @media screen and (max-width: 768px) {
+      .section { padding: 2.75rem 1.25rem; }
+      .benchmark-panel { padding: 1rem; }
+      .paper-figure { padding: .5rem; }
+    }
   </style>
 </head>
 
@@ -419,8 +507,7 @@
           <div class="columns is-centered">
             <div class="column has-text-centered">
               <h1 class="title is-1 publication-title">
-                World-Ego Modeling<br>
-                for Long-Horizon Evolution in Hybrid Embodied Tasks
+                World-Ego Modeling for Embodied Video Generation in Long-Horizon Navigation-Manipulation Tasks
               </h1>
 
               <div class="is-size-5 publication-authors mt-4">
@@ -429,6 +516,7 @@
                 <span class="author-block">Peidong Jia<sup>5</sup></span>
                 <span class="author-block">Xiaoguang Zhao<sup>1</sup></span>
                 <span class="author-block">Shanghang Zhang<sup>5</sup></span>
+                <span class="author-block">Jingdong Wang<sup>3</sup></span>
                 <span class="author-block">Xingyu Chen<sup>3,✉</sup></span>
               </div>
 
@@ -487,50 +575,40 @@
 
     <!-- Teaser -->
     <section class="hero teaser">
-      <div class="container is-max-desktop">
-        <div class="hero-body">
-          <img src="static/images/teaser.png" id="teaser" alt="World-Ego Modeling teaser">
-
-          <h2 class="subtitle has-text-centered mt-4">
-            WEM decomposes embodied future prediction into
-            <span class="tag tag-world">persistent world evolution</span>
-            and
-            <span class="tag tag-ego">robot-centric ego dynamics</span>
-            for long-horizon hybrid navigation-manipulation tasks.
-          </h2>
-        </div>
-      </div>
+      <div class="container is-max-desktop"><div class="hero-body">
+        <a href="static/images/teaser.png" target="_blank" rel="noopener" aria-label="Open the teaser figure at full resolution"><img src="static/images/teaser.png" id="teaser" alt="World-ego decomposition for consistent scenes and instruction-aligned interactions across navigation and manipulation"></a>
+        <h2 class="subtitle has-text-centered mt-4">Separate the <strong>world</strong> and the <strong>ego</strong> for consistent scenes and accurate instruction following in long-horizon navigation-manipulation tasks.</h2>
+      </div></div>
     </section>
 
     <!-- Abstract -->
     <section class="section hero is-light" id="abstract">
       <div class="container is-max-desktop">
-        <div class="columns is-centered has-text-centered">
-          <div class="column is-four-fifths">
-            <h2 class="title is-3 wem-section-title">Abstract</h2>
-            <div class="content has-text-justified">
-              <p>
-                World models are widely explored in embodied intelligence, yet they typically predict distinct evolutions of the world and the ego within a single stream, where the world captures persistent instruction-agnostic scene regularities and the ego captures robot-centric instruction-conditioned dynamics. This world-ego entanglement leads to a degradation in long-horizon embodied scenarios, particularly in hybrid tasks with interleaved navigation and manipulation behaviors. In this paper, we introduce <em>World-Ego Modeling</em>, a new conceptual paradigm that decomposes future evolution into world and ego components. We define the world-ego boundary from three perspectives, i.e., motion-, semantic-, and intention-based views, and analyze three disentanglement strategies with post-, pre-, and full decoupling. Further, we instantiate this paradigm as the World-Ego Model (WEM), a unified embodied world model that couples an implicit separate world-ego planner with a cascade-parallel mixture-of-experts (CP-MoE) diffusion generator. To enable rigorous evaluation, we further construct HTEWorld, the first benchmark for long-horizon world modeling with hybrid navigation-manipulation tasks, providing 125K training video clips (over 4.5M frames) with fine-grained action annotations and 300 multi-turn evaluation trajectories (over 2K instructions). Extensive experiments show that WEM achieves state-of-the-art performance on HTEWorld while remaining competitive on existing manipulation-only benchmarks.
-              </p>
-            </div>
-          </div>
-        </div>
-
+        <h2 class="title is-3 has-text-centered wem-section-title">Abstract</h2>
+        <div class="content has-text-justified"><p>Embodied video world models typically capture both scene evolution and the robot&#x27;s behavior, which we refer to as the world and the ego, respectively. The world and the ego exhibit different underlying dynamics: world prediction relies primarily on visual history and emphasizes scene stability, whereas ego prediction relies more strongly on the current instruction and emphasizes accurate instruction following. Modeling both components within a single generation stream can entangle these different dependencies, making it difficult to specialize the prediction of either component. Consequently, it becomes difficult to simultaneously maintain scene consistency and accurate instruction following, particularly in long-horizon navigation-manipulation tasks. In this paper, we propose to decompose an embodied video into the world and the ego and disentangle their generation processes. Specifically, we define the world as the background and currently unmanipulated objects, and the ego as the robot and currently manipulated objects. Based on this definition, we develop the World-Ego Model (WEM), which combines a vision-language state predictor using role-conditioned attention (RCA) and asymmetric query budgets with a semantic-routed mixture-of-experts (SR-MoE) diffusion generator. To enable rigorous evaluation, we further construct HTEWorld, a dataset and benchmark for long-horizon embodied video generation with hybrid navigation-manipulation tasks, providing 125K training video clips comprising over 4.5M frames with fine-grained instructions, together with 300 multi-turn evaluation trajectories covering over 2K instructions. Extensive experiments show that WEM achieves state-of-the-art performance on HTEWorld while remaining competitive on existing manipulation-oriented evaluations.</p></div>
       </div>
     </section>
 
     <!-- Highlights -->
     <section class="section" id="highlights">
-      <div class="container is-max-desktop">
-        <h2 class="title is-3 has-text-centered">Highlights</h2>
-        <div class="columns is-centered mt-4">
-          <div class="column is-four-fifths content">
-            <ul>
-              <li><strong>World-Ego Modeling.</strong> We propose World-Ego Modeling, a new conceptual paradigm for the embodied world model that decomposes future evolution into the world and the ego. We define the world-ego boundary from motion-, semantic-, and intention-based views and analyze the necessity of world-ego disengagement for embodied evolution.</li>
-              <li><strong>World-Ego Model.</strong> We design WEM, a video-based embodied world model with an RCA-based planner and a CP-MoE generator that instantiates the concept of world-ego modeling, to address long-horizon video rollout for hybrid navigation-manipulation tasks.</li>
-              <li><strong>HTEWorld Benchmark.</strong> We construct HTEWorld, the first training dataset, benchmark, and metric protocol for long-horizon world evolution with hybrid navigation-manipulation behaviors. Our WEM achieves state-of-the-art performance on HTEWorld and maintains compatibility with the previous manipulation-oriented task.</li>
-            </ul>
-          </div>
+      <div class="container is-max-widescreen">
+        <h2 class="title is-3 has-text-centered wem-section-title">Highlights</h2>
+        <div class="highlights-grid">
+          <article class="highlight-card">
+            <span class="highlight-number">01</span>
+            <h3>World-Ego Decomposition</h3>
+            <p>We show that an embodied video can be decomposed into world (i.e., background and currently unmanipulated objects) and ego (i.e., the robot and currently manipulated objects) components, providing an effective formulation for embodied video world models.</p>
+          </article>
+          <article class="highlight-card">
+            <span class="highlight-number">02</span>
+            <h3>World-Ego Model</h3>
+            <p>We develop WEM to instantiate world-ego decomposition with a world-ego state predictor and an SR-MoE video generator. We demonstrate its effectiveness for long-horizon, multi-turn generation in hybrid navigation-manipulation tasks.</p>
+          </article>
+          <article class="highlight-card">
+            <span class="highlight-number">03</span>
+            <h3>HTEWorld Benchmark</h3>
+            <p>We establish HTEWorld, which provides 125K training clips and 300 evaluation trajectories, as a dataset and benchmark for long-horizon embodied video generation in hybrid navigation-manipulation tasks. Experiments show that WEM achieves SOTA performance on HTEWorld while remaining competitive on existing manipulation-oriented evaluations.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -538,155 +616,83 @@
     <!-- Method and Benchmark -->
     <section class="section hero is-light" id="method">
       <div class="container is-max-desktop">
-        <h2 class="title is-3 has-text-centered wem-section-title">World-Ego Modeling: Concept, Model, and Benchmark</h2>
-        <p class="section-subtitle has-text-centered">
-          This section expands the three main contributions: the World-Ego Modeling paradigm, the World-Ego Model architecture, and the Hybrid-Task Embodied World Benchmark.
-        </p>
-
+        <h2 class="title is-3 has-text-centered wem-section-title">World-Ego Model</h2>
+        <p class="section-subtitle has-text-centered">Separate conditioning information. Specialize generation. Preserve shared spatial and temporal structure.</p>
         <div class="columns mt-5">
-          <div class="column">
-            <div class="simple-card">
-              <h3>World-Ego Modeling</h3>
-              <p>We treat the world and the ego as two predictive roles for embodied evolution. The world-ego boundary is defined from motion-, semantic-, and intention-based views, and the necessity of world-ego disentanglement is studied through post-, pre-, and full decoupling strategies.</p>
-            </div>
-          </div>
-          <div class="column">
-            <div class="simple-card">
-              <h3>WEM</h3>
-              <p>We instantiate the paradigm as World-Ego Model (WEM) under the semantic-based world-ego view and full disentanglement. WEM uses a role-conditioned attention planner to infer separate world and ego states, and a cascade-parallel mixture-of-experts generator to produce long-horizon video rollouts.</p>
-            </div>
-          </div>
-          <div class="column">
-            <div class="simple-card">
-              <h3>HTEWorld</h3>
-              <p>We construct Hybrid-Task Embodied World Benchmark (HTEWorld) for long-horizon world evolution with unified navigation-manipulation behaviors. It provides training clips, multi-turn evaluation trajectories, and metrics for evaluating continuous hybrid-task rollouts.</p>
-            </div>
-          </div>
+          <div class="column"><div class="simple-card">
+            <h3>World-Ego State Predictor</h3>
+            <p>A vision-language model extracts world and ego states using Role-Conditioned Attention (RCA). World queries attend to historical vision-language context; ego queries focus on the most recent video and current instruction. Asymmetric query budgets allocate more capacity to the longer world history.</p>
+          </div></div>
+          <div class="column"><div class="simple-card">
+            <h3>SR-MoE Video Generator</h3>
+            <p>A shared Preceding Expert processes all video tokens. A Semantic Head predicts world-ego assignments, routing tokens to specialized World and Ego Experts. Neighbor-Expanded Assignment provides overlapping context near their boundaries before the outputs are recombined.</p>
+          </div></div>
         </div>
-
-        <div class="mt-5">
-          <img src="static/images/framework.png" alt="General framework of world-ego modeling" loading="lazy" onerror="this.style.display='none'; document.getElementById('framework-placeholder').style.display='flex';">
-          <div id="framework-placeholder" class="placeholder-box" style="display:none;">
-            <div>
-              <h3 class="title is-4">[Paper Figure] General World-Ego Modeling Framework</h3>
-              <p><code>static/images/framework.png</code></p>
-            </div>
-          </div>
-          <p class="mt-3 figure-caption">
-            <strong>General framework of World-Ego Modeling.</strong> (a) A state predictor infers separate world-ego states from vision-language tokens. CP-MoE is designed to form different degrees of world-ego decoupling. (b) Pre-disentanglement. (c) Post-disentanglement. (d) Full disentanglement.
-          </p>
+        <figure class="mt-5 paper-figure">
+          <a href="static/images/model.png" target="_blank" rel="noopener" aria-label="Open the model figure at full resolution"><img src="static/images/model.png" alt="WEM architecture: role-conditioned world and ego state prediction followed by semantic routing to specialized video-generation experts" loading="lazy"></a>
+          <figcaption class="mt-3 figure-caption"><strong>Overview of WEM.</strong> The state predictor separates conditioning information, and the SR-MoE generator combines shared video processing with role-specific generation. Chunk-wise autoregressive generation extends this process over successive instructions.</figcaption>
+        </figure>
+      </div>
+    </section>
+    <section class="section" id="dataset">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">HTEWorld</h2>
+        <div class="content">
+          <p>The <strong>Hybrid-Task Embodied World Benchmark</strong> evaluates long-horizon video generation with interleaved navigation and manipulation. Built from teleoperated demonstrations released for the 2025 BEHAVIOR Challenge in BEHAVIOR-1K, it uses head-camera RGB observations from the Galaxea R1 Pro robot across ten household tasks. Five episodes per task are held out for evaluation.</p>
+          <p>HTEWorld provides <strong>125K training clips with over 4.5M frames</strong> and <strong>300 multi-turn evaluation trajectories covering over 2K instructions</strong>. Clips contain 37 frames at 16 FPS and 480 × 480 resolution. The primary evaluation uses WorldArena’s 16 metrics and EWMScore.</p>
         </div>
-
-        <div class="mt-5">
-          <img src="static/images/model.png" alt="Overview of the World-Ego Model architecture" loading="lazy" onerror="this.style.display='none'; document.getElementById('wem-overview-placeholder').style.display='flex';">
-          <div id="wem-overview-placeholder" class="placeholder-box" style="display:none;">
-            <div>
-              <h3 class="title is-4">[Paper Figure] WEM Overview</h3>
-              <p><code>static/images/model.png</code></p>
-            </div>
-          </div>
-          <p class="mt-3 figure-caption">
-            <strong>Overview of the World-Ego Model.</strong> The predictor takes multi-turn instructions for hybrid navigation-manipulation tasks and predicts long-horizon world and ego states. The generator separately evolves the world and ego with the generated semantic proxy.
-          </p>
-        </div>
-
-        <div class="mt-5">
-          <img src="static/images/dataset.png" alt="HTEWorld dataset and benchmark overview" loading="lazy" onerror="this.style.display='none'; document.getElementById('hteworld-placeholder').style.display='flex';">
-          <div id="hteworld-placeholder" class="placeholder-box small" style="display:none;">
-            <div>
-              <h3 class="title is-5">[Paper Figure] HTEWorld Dataset and Benchmark</h3>
-              <p><code>static/images/dataset.png</code></p>
-            </div>
-          </div>
-          <p class="mt-3 figure-caption">
-            <strong>Statistics of the proposed HTEWorld benchmark.</strong> HTEWorld provides large-scale training clips and multi-turn evaluation trajectories for hybrid embodied world modeling. <strong>Left.</strong> Hybrid-task vocabulary spanning manipulation, navigation, objects, and scenes. <strong>Middle.</strong> Training-set composition, including training/evaluation scale, action-oriented clip types, and annotation categories. <strong>Right.</strong> Evaluation-trajectory composition, including instruction-round distribution and the manipulation/navigation proportion at each length.
-          </p>
-        </div>
+        <figure class="mt-5 paper-figure">
+          <a href="static/images/dataset.png" target="_blank" rel="noopener" aria-label="Open the dataset figure at full resolution"><img src="static/images/dataset.png" alt="HTEWorld statistics: annotation vocabulary, dataset composition, and instruction-round distribution across evaluation trajectories" loading="lazy"></a>
+          <figcaption class="mt-3 figure-caption"><strong>Statistics of HTEWorld.</strong> Left: word-frequency visualization of manipulation, navigation, object, and scene annotations. Middle: dataset composition and annotation statistics. Right: instruction-round distribution and navigation/manipulation proportions across evaluation trajectories.</figcaption>
+        </figure>
       </div>
     </section>
 
     <!-- Quantitative Results -->
-    <section class="section" id="results">
+    <section class="section hero is-light" id="results">
       <div class="container is-max-widescreen">
         <h2 class="title is-3 has-text-centered">Quantitative Results</h2>
-        <p class="section-subtitle has-text-centered">
-          We report the two main HTEWorld comparisons from the paper. Higher is better for all metrics.
-        </p>
-
-        <div class="mt-5">
-          <h3 class="title is-5 has-text-centered">HTEWorld Results Under WorldArena Metrics</h3>
-          <p class="table-note">
-            Comparison on HTEWorld using WorldArena's normalized metric suite. The table keeps the full metric breakdown, with expanded headers for readability on the project page.
-          </p>
-          <div class="table-container">
-            <table class="table is-fullwidth is-hoverable is-size-7 results-table worldarena-table">
-              <thead>
-                <tr>
-                  <th rowspan="2">Model</th>
-                  <th rowspan="2">EWMScore</th>
-                  <th colspan="3" class="metric-group metric-divider">Visual Quality</th>
-                  <th colspan="3" class="metric-group metric-divider">Motion Quality</th>
-                  <th colspan="3" class="metric-group metric-divider">Content Consistency</th>
-                  <th colspan="2" class="metric-group metric-divider">Physics Adherence</th>
-                  <th colspan="2" class="metric-group metric-divider">3D Accuracy</th>
-                  <th colspan="3" class="metric-group metric-divider">Controllability</th>
-                </tr>
-                <tr>
-                  <th class="metric-divider"><span class="metric-header">Image Quality</span></th>
-                  <th><span class="metric-header">Aesthetic Quality</span></th>
-                  <th><span class="metric-header">JEPA Similarity</span></th>
-                  <th class="metric-divider"><span class="metric-header">Dynamic Degree</span></th>
-                  <th><span class="metric-header">Flow Score</span></th>
-                  <th><span class="metric-header">Motion Smoothness</span></th>
-                  <th class="metric-divider"><span class="metric-header">Subject Consistency</span></th>
-                  <th><span class="metric-header">Background Consistency</span></th>
-                  <th><span class="metric-header">Photometric Consistency</span></th>
-                  <th class="metric-divider"><span class="metric-header">Interaction Quality</span></th>
-                  <th><span class="metric-header">Trajectory Accuracy</span></th>
-                  <th class="metric-divider"><span class="metric-header">Depth Accuracy</span></th>
-                  <th><span class="metric-header">Perspectivity</span></th>
-                  <th class="metric-divider"><span class="metric-header">Instruction Following</span></th>
-                  <th><span class="metric-header">Semantic Alignment</span></th>
-                  <th><span class="metric-header">Action Following</span></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>WoW-7B</td><td>53.44</td><td class="metric-divider">64.72</td><td>49.74</td><td>1.30</td><td class="metric-divider">22.76</td><td>25.49</td><td>67.74</td><td class="metric-divider">63.06</td><td>66.86</td><td>38.08</td><td class="metric-divider">80.90</td><td>28.16</td><td class="metric-divider">82.41</td><td>95.14</td><td class="metric-divider">78.42</td><td>86.75</td><td>3.47</td></tr>
-                <tr><td>Cosmos-Predict 2.5-2B</td><td>54.83</td><td class="metric-divider">64.40</td><td>50.21</td><td>1.26</td><td class="metric-divider">24.62</td><td>27.23</td><td>69.33</td><td class="metric-divider">66.88</td><td>71.54</td><td><strong>42.53</strong></td><td class="metric-divider">83.02</td><td>28.78</td><td class="metric-divider">82.11</td><td>95.28</td><td class="metric-divider">79.60</td><td>87.05</td><td>3.52</td></tr>
-                <tr><td>Cosmos-Predict 2.5-14B</td><td>55.41</td><td class="metric-divider">62.14</td><td>50.02</td><td>1.38</td><td class="metric-divider">29.37</td><td>32.34</td><td>71.63</td><td class="metric-divider">68.65</td><td>73.85</td><td>35.48</td><td class="metric-divider">84.70</td><td>28.81</td><td class="metric-divider">82.60</td><td>94.40</td><td class="metric-divider">80.20</td><td>87.46</td><td>3.55</td></tr>
-                <tr><td>PAN-style Baseline</td><td>58.40</td><td class="metric-divider">65.48</td><td>49.00</td><td>1.70</td><td class="metric-divider">38.14</td><td>47.43</td><td>79.47</td><td class="metric-divider">74.79</td><td>80.24</td><td>33.15</td><td class="metric-divider">86.33</td><td>28.75</td><td class="metric-divider">82.39</td><td>95.08</td><td class="metric-divider">80.40</td><td>87.67</td><td>4.42</td></tr>
-                <tr class="ours-row"><td><strong>WEM</strong></td><td><strong>61.48</strong></td><td class="metric-divider"><strong>66.82</strong></td><td><strong>50.30</strong></td><td><strong>2.49</strong></td><td class="metric-divider"><strong>41.52</strong></td><td><strong>49.21</strong></td><td><strong>82.70</strong></td><td class="metric-divider"><strong>82.07</strong></td><td><strong>87.92</strong></td><td>35.95</td><td class="metric-divider"><strong>90.80</strong></td><td><strong>34.51</strong></td><td class="metric-divider"><strong>84.55</strong></td><td><strong>97.60</strong></td><td class="metric-divider"><strong>82.00</strong></td><td><strong>90.74</strong></td><td><strong>4.50</strong></td></tr>
-              </tbody>
-            </table>
+        <p class="section-subtitle has-text-centered">Evaluation across long-horizon navigation-manipulation tasks, tabletop manipulation, and real-world robot videos.</p>
+        <div class="benchmark-panel mt-5">
+          <h3 class="title is-5">Experiments on HTEWorld</h3>
+          <p class="table-note">WorldArena metrics and EWMScore. Higher is better; metric abbreviations and column order follow the paper.</p>
+          <div class="table-container" tabindex="0" role="region" aria-label="HTEWorld results; scroll horizontally to view all metrics">
+            <table id="hteworld-table" class="table is-fullwidth is-hoverable is-size-7 results-table hteworld-table"><thead><tr><th rowspan="2" scope="col">Model</th><th rowspan="2" scope="col">EWMScore ↑</th><th colspan="3" scope="colgroup" class="metric-group metric-divider">Visual</th><th colspan="3" scope="colgroup" class="metric-group metric-divider">Motion</th><th colspan="3" scope="colgroup" class="metric-group metric-divider">Consistency</th><th colspan="3" scope="colgroup" class="metric-group metric-divider">3D</th><th colspan="3" scope="colgroup" class="metric-group metric-divider">Control</th><th colspan="1" scope="colgroup" class="metric-group metric-divider">Physics</th></tr><tr><th scope="col" class="metric-divider">IQ</th><th scope="col">AQ</th><th scope="col">JEPA</th><th scope="col" class="metric-divider">DD</th><th scope="col">Flow</th><th scope="col">MS</th><th scope="col" class="metric-divider">BC</th><th scope="col">SC</th><th scope="col">Photo</th><th scope="col" class="metric-divider">DA</th><th scope="col">TA</th><th scope="col">Persp</th><th scope="col" class="metric-divider">Sem</th><th scope="col">Act</th><th scope="col">Inst</th><th scope="col" class="metric-divider">Inter</th></tr></thead><tbody>
+<tr><th scope="row">WoW-7B</th><td>53.44</td><td class="metric-divider">64.72</td><td>49.74</td><td>1.30</td><td class="metric-divider">22.76</td><td>25.49</td><td>67.74</td><td class="metric-divider">66.86</td><td>63.06</td><td>38.08</td><td class="metric-divider">82.41</td><td>28.16</td><td>95.14</td><td class="metric-divider">86.75</td><td>3.47</td><td>78.42</td><td class="metric-divider">80.90</td></tr>
+<tr><th scope="row">Cosmos-Predict 2.5-2B</th><td>54.83</td><td class="metric-divider">64.40</td><td>50.21</td><td>1.26</td><td class="metric-divider">24.62</td><td>27.23</td><td>69.33</td><td class="metric-divider">71.54</td><td>66.88</td><td><strong>42.53</strong></td><td class="metric-divider">82.11</td><td>28.78</td><td>95.28</td><td class="metric-divider">87.05</td><td>3.52</td><td>79.60</td><td class="metric-divider">83.02</td></tr>
+<tr><th scope="row">Cosmos-Predict 2.5-14B</th><td>55.41</td><td class="metric-divider">62.14</td><td>50.02</td><td>1.38</td><td class="metric-divider">29.37</td><td>32.34</td><td>71.63</td><td class="metric-divider">73.85</td><td>68.65</td><td>35.48</td><td class="metric-divider">82.60</td><td>28.81</td><td>94.40</td><td class="metric-divider">87.46</td><td>3.55</td><td>80.20</td><td class="metric-divider">84.70</td></tr>
+<tr><th scope="row">PAN (Wan2.1)</th><td>56.58</td><td class="metric-divider">64.87</td><td>49.01</td><td>1.20</td><td class="metric-divider">39.65</td><td>44.00</td><td>77.01</td><td class="metric-divider">82.99</td><td>75.95</td><td>29.87</td><td class="metric-divider">79.64</td><td>26.26</td><td>95.23</td><td class="metric-divider">86.22</td><td>3.12</td><td>69.14</td><td class="metric-divider">81.12</td></tr>
+<tr><th scope="row">PAN (Wan2.2)</th><td>58.40</td><td class="metric-divider">65.48</td><td>49.00</td><td>1.70</td><td class="metric-divider">38.14</td><td>47.43</td><td>79.47</td><td class="metric-divider">80.24</td><td>74.79</td><td>33.15</td><td class="metric-divider">82.39</td><td>28.75</td><td>95.08</td><td class="metric-divider">87.67</td><td>4.42</td><td>80.40</td><td class="metric-divider">86.33</td></tr>
+<tr class="ours-row"><th scope="row">WEM (Wan2.1)</th><td>60.11</td><td class="metric-divider">65.02</td><td>49.01</td><td>1.92</td><td class="metric-divider">38.95</td><td>47.40</td><td>82.61</td><td class="metric-divider"><strong>88.19</strong></td><td>81.95</td><td>34.22</td><td class="metric-divider">83.69</td><td>31.91</td><td>95.33</td><td class="metric-divider">88.49</td><td>4.02</td><td><strong>87.72</strong></td><td class="metric-divider">81.32</td></tr>
+<tr class="ours-row"><th scope="row">WEM (Wan2.2)</th><td><strong>61.48</strong></td><td class="metric-divider"><strong>66.82</strong></td><td><strong>50.30</strong></td><td><strong>2.49</strong></td><td class="metric-divider"><strong>41.52</strong></td><td><strong>49.21</strong></td><td><strong>82.70</strong></td><td class="metric-divider">87.92</td><td><strong>82.07</strong></td><td>35.95</td><td class="metric-divider"><strong>84.55</strong></td><td><strong>34.51</strong></td><td><strong>97.60</strong></td><td class="metric-divider"><strong>90.74</strong></td><td><strong>4.50</strong></td><td>82.00</td><td class="metric-divider"><strong>90.80</strong></td></tr>
+</tbody></table>
           </div>
+          <p class="table-note">WEM reaches 61.48 with Wan2.2 and 60.11 with Wan2.1, improving over the corresponding PAN baselines by 3.08 and 3.53 points.</p>
         </div>
-
-        <div class="mt-5">
-          <h3 class="title is-5 has-text-centered">HTEWorld Navigation-Manipulation Metrics</h3>
-          <p class="table-note">
-            Comparison on HTEWorld with navigation-manipulation metrics in their original scale. These metrics evaluate continuous multi-turn generation and unified navigation-manipulation behavior.
-          </p>
-          <div class="table-container">
-            <table class="table is-fullwidth is-hoverable is-size-7 results-table">
-              <thead>
-                <tr>
-                  <th>Model</th>
-                  <th><span class="metric-header">Rollout Chunk-Boundary Dynamics</span></th>
-                  <th><span class="metric-header">Late-Prefix State Alignment</span></th>
-                  <th><span class="metric-header">Chunk Instruction-Step Retrieval</span></th>
-                  <th><span class="metric-header">Phase-Matched Motion Profile Alignment</span></th>
-                  <th><span class="metric-header">Cross-Phase Discriminative Margin</span></th>
-                  <th><span class="metric-header">Frontier Phase-Hop State Consistency</span></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>WoW-7B</td><td>0.23</td><td>0.83</td><td>0.49</td><td>0.45</td><td>0.47</td><td>0.85</td></tr>
-                <tr><td>Cosmos-Predict 2.5-2B</td><td>0.24</td><td>0.83</td><td>0.50</td><td>0.47</td><td>0.48</td><td>0.86</td></tr>
-                <tr><td>Cosmos-Predict 2.5-14B</td><td>0.26</td><td>0.83</td><td>0.51</td><td>0.48</td><td>0.49</td><td>0.85</td></tr>
-                <tr><td>PAN-style Baseline</td><td>0.27</td><td>0.86</td><td>0.49</td><td>0.50</td><td>0.46</td><td>0.88</td></tr>
-                <tr class="ours-row"><td><strong>WEM</strong></td><td><strong>0.31</strong></td><td><strong>0.87</strong></td><td><strong>0.57</strong></td><td><strong>0.54</strong></td><td><strong>0.52</strong></td><td><strong>0.89</strong></td></tr>
-              </tbody>
-            </table>
+        <div class="benchmark-pair mt-5">
+          <div class="benchmark-panel">
+            <h3 class="title is-5">Experiments on WorldArena</h3>
+            <p class="table-note">The condition is the control signal supplied in addition to visual context.</p>
+            <div class="table-container" tabindex="0" role="region" aria-label="worldarena results"><table id="worldarena-table" class="table is-fullwidth is-hoverable comparison-table"><thead><tr><th scope="col">Model</th><th scope="col">Condition</th><th scope="col">EWMScore ↑</th></tr></thead><tbody>
+<tr><th scope="row">Wan2.2</th><td>Text</td><td>54.54</td></tr>
+<tr><th scope="row">WoW</th><td>Text</td><td>54.88</td></tr>
+<tr><th scope="row">CogVideoX</th><td>Text</td><td>57.90</td></tr>
+<tr class="ours-row"><th scope="row">WEM (Wan2.2)</th><td>Text</td><td>58.10</td></tr>
+<tr><th scope="row">Cosmos-Predict 2.5</th><td>Action</td><td>55.91</td></tr>
+<tr><th scope="row">IRASim</th><td>Action</td><td>58.12</td></tr>
+<tr><th scope="row">Ctrl-World</th><td>Action</td><td><strong>59.70</strong></td></tr>
+</tbody></table></div>
+            <p class="table-note">WEM leads the compared text-conditioned methods. Other scores are reported by WorldArena.</p>
+          </div>
+          <div class="benchmark-panel">
+            <h3 class="title is-5">Experiments on DROID</h3>
+            <p class="table-note">Real-world manipulation videos. PAN and WEM use Wan2.2.</p>
+            <div class="table-container" tabindex="0" role="region" aria-label="droid results"><table id="droid-table" class="table is-fullwidth is-hoverable comparison-table"><thead><tr><th scope="col">Model</th><th scope="col">EWMScore ↑</th></tr></thead><tbody>
+<tr><th scope="row">Wan2.2</th><td>46.44</td></tr>
+<tr><th scope="row">PAN</th><td>50.83</td></tr>
+<tr class="ours-row"><th scope="row">WEM</th><td><strong>53.70</strong></td></tr>
+</tbody></table></div>
+            <p class="table-note">WEM improves over PAN by 2.87 points and over Wan2.2 by 7.26 points.</p>
           </div>
         </div>
       </div>
@@ -697,7 +703,7 @@
       <div class="container is-max-widescreen">
         <h2 class="title is-3 has-text-centered wem-section-title">Qualitative Results</h2>
         <p class="section-subtitle has-text-centered">
-          Representative rollouts show long-horizon prediction quality, hybrid task consistency, and the effect of world-ego specialization.
+          Representative rollouts show scene consistency and instruction following across interleaved navigation and manipulation.
         </p>
 
         <h3 class="title is-5 has-text-centered video-group-title">Comparison with Baselines</h3>
@@ -799,8 +805,8 @@
           </button>
         </div>
         <pre id="bibtex-code"><code>@article{wem2026,
-  title={World-Ego Modeling for Long-Horizon Evolution in Hybrid Embodied Tasks},
-  author={Lin, Zuyao and Zhang, Jianhui and Jia, Peidong and Zhao, Xiaoguang and Zhang, Shanghang and Chen, Xingyu},
+  title={World-Ego Modeling for Embodied Video Generation in Long-Horizon Navigation-Manipulation Tasks},
+  author={Lin, Zuyao and Zhang, Jianhui and Jia, Peidong and Zhao, Xiaoguang and Zhang, Shanghang and Wang, Jingdong and Chen, Xingyu},
   journal={arXiv preprint arXiv:2605.19957},
   year={2026}
 }</code></pre>
