@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4LC: 4D Latent Cache</title>
+<meta name="description" content="4LC caches visual representations of static and dynamic content for reuse across times and viewpoints.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=1013003130">
+<link rel="icon" type="image/svg+xml" href="4lc.svg">
+</head>
+<body>
+<header class="hero">
+  <h1 class="mark" aria-label="4LC">
+    <span class="layer" aria-hidden="true">4LC</span><span class="layer" aria-hidden="true">4LC</span><span class="layer" aria-hidden="true">4LC</span><span class="layer top">4LC</span>
+  </h1>
+  <p class="title">4D Latent Cache for Efficient Conditioning in Dynamic World Modeling</p>
+  <p class="authors">Jianhui Zhang<sup>1,2</sup>&emsp;Zuyao Lin<sup>3,2</sup>&emsp;Pengxin Xu<sup>4,2</sup>&emsp;Jingdong Wang<sup>2,✉</sup>&emsp;Xingyu Chen<sup>2,✉</sup></p>
+  <p class="affil"><sup>1</sup>SJTU&emsp;<sup>2</sup>ZGCA&emsp;<sup>3</sup>CASIA&emsp;<sup>4</sup>HIT&emsp;<sup>✉</sup>Equal advising</p>
+  <nav class="links" aria-label="Project links">
+    <a href="https://arxiv.org/abs/XXXX.XXXXX" target="_blank" rel="noopener noreferrer"><svg class="i-arxiv" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" aria-hidden="true"><path d="M3.8423 0a1.0037 1.0037 0 0 0-.922.6078c-.1536.3687-.0438.6275.2938 1.1113l6.9185 8.3597-1.0223 1.1058a1.0393 1.0393 0 0 0 .003 1.4229l1.2292 1.3135-5.4391 6.4444c-.2803.299-.4538.823-.2971 1.1986a1.0253 1.0253 0 0 0 .9585.635.9133.9133 0 0 0 .6891-.3405l5.783-6.126 7.4902 8.0051a.8527.8527 0 0 0 .6835.2597.9575.9575 0 0 0 .8777-.6138c.1577-.377-.017-.7502-.306-1.1407l-7.0518-8.3418 1.0632-1.13a.9626.9626 0 0 0 .0089-1.3165L4.6336.4639s-.3733-.4535-.768-.463zm0 .272h.0166c.2179.0052.4874.2715.5644.3639l.005.006.0052.0055 10.169 10.9905a.6915.6915 0 0 1-.0072.945l-1.0666 1.133-1.4982-1.7724-8.5994-10.39c-.3286-.472-.352-.6183-.2592-.841a.7307.7307 0 0 1 .6704-.4401Zm14.341 1.5701a.877.877 0 0 0-.6554.2418l-5.6962 6.1584 1.6944 1.8319 5.3089-6.5138c.3251-.4335.479-.6603.3247-1.0292a1.1205 1.1205 0 0 0-.9763-.689zm-7.6557 12.2823 1.3186 1.4135-5.7864 6.1295a.6494.6494 0 0 1-.4959.26.7516.7516 0 0 1-.706-.4669c-.1119-.2682.0359-.6864.2442-.9083l.0051-.0055.0047-.0055z"/></svg>Paper</a>
+    <a href="https://github.com/ZGCA-HMI-Lab/4LC" target="_blank" rel="noopener noreferrer"><svg class="i-gh" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M6.766 11.328c-2.063-.25-3.516-1.734-3.516-3.656 0-.781.281-1.625.75-2.188-.203-.515-.172-1.609.063-2.062.625-.078 1.468.25 1.968.703.594-.187 1.219-.281 1.985-.281.765 0 1.39.094 1.953.265.484-.437 1.344-.765 1.969-.687.218.422.25 1.515.046 2.047.5.593.766 1.39.766 2.203 0 1.922-1.453 3.375-3.547 3.64.531.344.89 1.094.89 1.954v1.625c0 .468.391.734.86.547C13.781 14.359 16 11.53 16 8.03 16 3.61 12.406 0 7.984 0 3.563 0 0 3.61 0 8.031a7.88 7.88 0 0 0 5.172 7.422c.422.156.828-.125.828-.547v-1.25c-.219.094-.5.156-.75.156-1.031 0-1.64-.562-2.078-1.609-.172-.422-.36-.672-.719-.719-.187-.015-.25-.093-.25-.187 0-.188.313-.328.625-.328.453 0 .844.281 1.25.86.313.452.64.655 1.031.655s.641-.14 1-.5c.266-.265.47-.5.657-.656"/></svg>Code</a>
+    <a href="https://huggingface.co/jianhuizhang/4LC-Video" target="_blank" rel="noopener noreferrer"><svg class="i-hf" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="11.5" r="9.9"/><path d="M1.4446 11.5059c0 1.1021.1673 2.1585.4847 3.1563-.0378-.0028-.0691-.0058-.1058-.0058-.4209 0-.8015.16-1.0704.4512-.3454.3737-.4984.8335-.4316 1.293a1.576 1.576 0 0 0 .2148.5978c-.2319.1864-.4018.4456-.4844.7578-.0646.2448-.131.7543.2149 1.2794a1.4552 1.4552 0 0 0-.0625.1055c-.208.3923-.2207.8372-.0371 1.25.2783.6258.9696 1.1175 2.3126 1.6467.8356.3292 1.5988.5411 1.6056.543 1.1046.2847 2.104.4277 2.969.4277 1.4173 0 2.4754-.3849 3.1525-1.1446 1.538.2651 2.791.1403 3.592.006.6773.7555 1.7332 1.1387 3.1467 1.1387.8649 0 1.8643-.143 2.969-.4278.0068-.0019.77-.2138 1.6056-.543 1.343-.5292 2.0343-1.0208 2.3126-1.6466.1836-.4129.171-.8577-.037-1.25a1.4685 1.4685 0 0 0-.0626-.1056c.346-.525.2795-1.0346.2149-1.2793-.0826-.3122-.2525-.5714-.4844-.7579.11-.1816.1831-.3788.2148-.5977.0669-.4595-.0862-.9193-.4316-1.293-.2688-.2913-.6495-.4513-1.0704-.4513-.0209 0-.0376.0008-.0588.0018.3162-.9966.4846-2.0518.4846-3.1523 0-5.807-4.7362-10.5144-10.5789-10.5144-5.8426 0-10.5788 4.7073-10.5788 10.5144Zm10.5788-9.4831c5.2727 0 9.5476 4.246 9.5476 9.483a9.4201 9.4201 0 0 1-.2696 2.2365c-.0039-.0047-.0079-.011-.0117-.0156-.274-.3255-.6679-.5059-1.1075-.5059-.352 0-.714.1155-1.0763.3438-.2403.1517-.5058.422-.7793.7598-.2534-.3492-.608-.5832-1.0137-.6465a1.5174 1.5174 0 0 0-.2344-.0176c-.9263 0-1.4828.7993-1.6935 1.5177-.1046.2426-.6065 1.3482-1.3614 2.0978-1.1681 1.1601-1.4458 2.3534-.8396 3.6382-.843.1029-1.5836.0927-2.365-.006.5906-1.212.3626-2.4388-.8426-3.6322-.755-.7496-1.2568-1.8552-1.3614-2.0978-.2107-.7184-.7673-1.5177-1.6935-1.5177-.078 0-.1568.0054-.2344.0176-.4057.0633-.7604.2973-1.0137.6465-.2735-.3379-.539-.6081-.7794-.7598-.3622-.2283-.7243-.3438-1.0762-.3438-.4266 0-.8094.171-1.0821.4786a9.4208 9.4208 0 0 1-.2598-2.1936c0-5.237 4.2749-9.483 9.5475-9.483zM8.6443 7.0036c-.4838.0043-.9503.2667-1.1934.7227-.3536.6633-.1006 1.4873.5645 1.84.351.1862.4883-.5261.836-.6485.3107-.1095.841.399 1.0078.086.3536-.6634.1025-1.4874-.5625-1.84a1.3659 1.3659 0 0 0-.6524-.1602Zm6.8403 0c-.2199-.002-.4426.05-.6504.1602-.665.3526-.9181 1.1766-.5645 1.84.1669.313.6971-.1955 1.0079-.086.3476.1224.4867.8347.838.6485.6649-.3527.916-1.1767.5624-1.84-.243-.456-.7096-.7184-1.1934-.7227Zm-9.7565 1.418a.8768.8768 0 0 0-.877.877c0 .4846.3925.877.877.877a.8768.8768 0 0 0 .877-.877.8768.8768 0 0 0-.877-.877zm12.6434 0c-.4845 0-.879.3925-.879.877 0 .4846.3945.877.879.877a.8768.8768 0 0 0 .877-.877.8768.8768 0 0 0-.877-.877zM8.7927 11.459c-.179-.003-.2793.1107-.2793.416 0 .8097.3874 2.125 1.4279 2.924.207-.7123 1.3453-1.2832 1.5079-1.2012.2315.1167.2191.4417.6074.7266.3884-.285.374-.6098.6056-.7266.1627-.082 1.3009.4889 1.5079 1.2012 1.0404-.799 1.4278-2.1144 1.4278-2.924 0-1.2212-1.583.6402-3.5413.6485-1.4686-.0061-2.7266-1.0558-3.2639-1.0645zM4.312 14.4768c.5792.365 1.6964 2.2751 2.1056 3.0177.1371.2488.371.3536.582.3536.4188 0 .7465-.4138.0391-.9395-1.0636-.791-.6914-2.0846-.1836-2.1642a.4302.4302 0 0 1 .0664-.004c.4616 0 .666.7892.666.7892s.5959 1.4898 1.6213 2.508c.942.9356 1.062 1.703.4961 2.6661-.0164-.004-.0159.0236-.1484.2149-.1853.2673-.4322.4688-.7188.6152-.5062.2269-1.1397.2696-1.7833.2696-1.037 0-2.1017-.1824-2.6975-.336-.0293-.0075-3.6505-.9567-3.1916-1.8224.0771-.1454.2033-.2031.3633-.2031.6463 0 1.823.9551 2.3283.9551.113 0 .196-.0865.2285-.2031.2249-.8045-3.2787-1.0522-2.9846-2.1642.0519-.1967.193-.2757.3907-.2754.854 0 2.7704 1.4923 3.172 1.4923.0307 0 .0525-.0085.0645-.0274.2012-.3227.1096-.5865-1.3087-1.4395-1.4182-.8533-2.4315-1.329-1.8653-1.9416.0651-.0707.1574-.1015.2695-.1015.8611.0002 2.8948 1.84 2.8948 1.84s.5487.5683.8809.5683c.0762 0 .1416-.0315.1855-.1054.2355-.3946-2.1858-2.2183-2.3224-2.971-.0926-.51.0641-.7676.3555-.7676-.0006.008.1701-.0285.4942.1759zm16.2257.5918c-.1366.7526-2.5579 2.5764-2.3224 2.9709.044.074.1092.1055.1855.1055.3321 0 .881-.5684.881-.5684s2.0336-1.8397 2.8947-1.84c.1121 0 .2044.0308.2695.1016.5662.6125-.447 1.0882-1.8653 1.9415-1.4183.853-1.51 1.1168-1.3087 1.4396.012.0188.0337.0273.0644.0273.4016 0 2.3181-1.4923 3.1721-1.4923.1977-.0002.3388.0787.3907.2754.294 1.112-3.2095 1.3597-2.9846 2.1642.0325.1166.1156.2032.2285.2032.5054 0 1.682-.9552 2.3283-.9552.16 0 .2862.0577.3633.2032.459.8656-3.1623 1.8149-3.1916 1.8224-.5958.1535-1.6605.336-2.6975.336-.6351 0-1.261-.0409-1.7638-.2599-.2949-.1472-.5488-.3516-.7383-.625-.0411-.0682-.1026-.1476-.1426-.205-.5726-.9679-.455-1.7371.4903-2.676 1.0254-1.0182 1.6212-2.508 1.6212-2.508s.2044-.7891.666-.7891a.4318.4318 0 0 1 .0665.0039c.5078.0796.88 1.3732-.1836 2.1642-.7074.5257-.3797.9395.039.9395.211 0 .445-.1047.5821-.3535.4092-.7426 1.5264-2.6527 2.1056-3.0178.5588-.3524.99-.1816.8497.5918z"/></svg>Models</a>
+    <a href="https://huggingface.co/spaces/jianhuizhang/4LC-Demo" target="_blank" rel="noopener noreferrer"><svg class="i-hf" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="11.5" r="9.9"/><path d="M1.4446 11.5059c0 1.1021.1673 2.1585.4847 3.1563-.0378-.0028-.0691-.0058-.1058-.0058-.4209 0-.8015.16-1.0704.4512-.3454.3737-.4984.8335-.4316 1.293a1.576 1.576 0 0 0 .2148.5978c-.2319.1864-.4018.4456-.4844.7578-.0646.2448-.131.7543.2149 1.2794a1.4552 1.4552 0 0 0-.0625.1055c-.208.3923-.2207.8372-.0371 1.25.2783.6258.9696 1.1175 2.3126 1.6467.8356.3292 1.5988.5411 1.6056.543 1.1046.2847 2.104.4277 2.969.4277 1.4173 0 2.4754-.3849 3.1525-1.1446 1.538.2651 2.791.1403 3.592.006.6773.7555 1.7332 1.1387 3.1467 1.1387.8649 0 1.8643-.143 2.969-.4278.0068-.0019.77-.2138 1.6056-.543 1.343-.5292 2.0343-1.0208 2.3126-1.6466.1836-.4129.171-.8577-.037-1.25a1.4685 1.4685 0 0 0-.0626-.1056c.346-.525.2795-1.0346.2149-1.2793-.0826-.3122-.2525-.5714-.4844-.7579.11-.1816.1831-.3788.2148-.5977.0669-.4595-.0862-.9193-.4316-1.293-.2688-.2913-.6495-.4513-1.0704-.4513-.0209 0-.0376.0008-.0588.0018.3162-.9966.4846-2.0518.4846-3.1523 0-5.807-4.7362-10.5144-10.5789-10.5144-5.8426 0-10.5788 4.7073-10.5788 10.5144Zm10.5788-9.4831c5.2727 0 9.5476 4.246 9.5476 9.483a9.4201 9.4201 0 0 1-.2696 2.2365c-.0039-.0047-.0079-.011-.0117-.0156-.274-.3255-.6679-.5059-1.1075-.5059-.352 0-.714.1155-1.0763.3438-.2403.1517-.5058.422-.7793.7598-.2534-.3492-.608-.5832-1.0137-.6465a1.5174 1.5174 0 0 0-.2344-.0176c-.9263 0-1.4828.7993-1.6935 1.5177-.1046.2426-.6065 1.3482-1.3614 2.0978-1.1681 1.1601-1.4458 2.3534-.8396 3.6382-.843.1029-1.5836.0927-2.365-.006.5906-1.212.3626-2.4388-.8426-3.6322-.755-.7496-1.2568-1.8552-1.3614-2.0978-.2107-.7184-.7673-1.5177-1.6935-1.5177-.078 0-.1568.0054-.2344.0176-.4057.0633-.7604.2973-1.0137.6465-.2735-.3379-.539-.6081-.7794-.7598-.3622-.2283-.7243-.3438-1.0762-.3438-.4266 0-.8094.171-1.0821.4786a9.4208 9.4208 0 0 1-.2598-2.1936c0-5.237 4.2749-9.483 9.5475-9.483zM8.6443 7.0036c-.4838.0043-.9503.2667-1.1934.7227-.3536.6633-.1006 1.4873.5645 1.84.351.1862.4883-.5261.836-.6485.3107-.1095.841.399 1.0078.086.3536-.6634.1025-1.4874-.5625-1.84a1.3659 1.3659 0 0 0-.6524-.1602Zm6.8403 0c-.2199-.002-.4426.05-.6504.1602-.665.3526-.9181 1.1766-.5645 1.84.1669.313.6971-.1955 1.0079-.086.3476.1224.4867.8347.838.6485.6649-.3527.916-1.1767.5624-1.84-.243-.456-.7096-.7184-1.1934-.7227Zm-9.7565 1.418a.8768.8768 0 0 0-.877.877c0 .4846.3925.877.877.877a.8768.8768 0 0 0 .877-.877.8768.8768 0 0 0-.877-.877zm12.6434 0c-.4845 0-.879.3925-.879.877 0 .4846.3945.877.879.877a.8768.8768 0 0 0 .877-.877.8768.8768 0 0 0-.877-.877zM8.7927 11.459c-.179-.003-.2793.1107-.2793.416 0 .8097.3874 2.125 1.4279 2.924.207-.7123 1.3453-1.2832 1.5079-1.2012.2315.1167.2191.4417.6074.7266.3884-.285.374-.6098.6056-.7266.1627-.082 1.3009.4889 1.5079 1.2012 1.0404-.799 1.4278-2.1144 1.4278-2.924 0-1.2212-1.583.6402-3.5413.6485-1.4686-.0061-2.7266-1.0558-3.2639-1.0645zM4.312 14.4768c.5792.365 1.6964 2.2751 2.1056 3.0177.1371.2488.371.3536.582.3536.4188 0 .7465-.4138.0391-.9395-1.0636-.791-.6914-2.0846-.1836-2.1642a.4302.4302 0 0 1 .0664-.004c.4616 0 .666.7892.666.7892s.5959 1.4898 1.6213 2.508c.942.9356 1.062 1.703.4961 2.6661-.0164-.004-.0159.0236-.1484.2149-.1853.2673-.4322.4688-.7188.6152-.5062.2269-1.1397.2696-1.7833.2696-1.037 0-2.1017-.1824-2.6975-.336-.0293-.0075-3.6505-.9567-3.1916-1.8224.0771-.1454.2033-.2031.3633-.2031.6463 0 1.823.9551 2.3283.9551.113 0 .196-.0865.2285-.2031.2249-.8045-3.2787-1.0522-2.9846-2.1642.0519-.1967.193-.2757.3907-.2754.854 0 2.7704 1.4923 3.172 1.4923.0307 0 .0525-.0085.0645-.0274.2012-.3227.1096-.5865-1.3087-1.4395-1.4182-.8533-2.4315-1.329-1.8653-1.9416.0651-.0707.1574-.1015.2695-.1015.8611.0002 2.8948 1.84 2.8948 1.84s.5487.5683.8809.5683c.0762 0 .1416-.0315.1855-.1054.2355-.3946-2.1858-2.2183-2.3224-2.971-.0926-.51.0641-.7676.3555-.7676-.0006.008.1701-.0285.4942.1759zm16.2257.5918c-.1366.7526-2.5579 2.5764-2.3224 2.9709.044.074.1092.1055.1855.1055.3321 0 .881-.5684.881-.5684s2.0336-1.8397 2.8947-1.84c.1121 0 .2044.0308.2695.1016.5662.6125-.447 1.0882-1.8653 1.9415-1.4183.853-1.51 1.1168-1.3087 1.4396.012.0188.0337.0273.0644.0273.4016 0 2.3181-1.4923 3.1721-1.4923.1977-.0002.3388.0787.3907.2754.294 1.112-3.2095 1.3597-2.9846 2.1642.0325.1166.1156.2032.2285.2032.5054 0 1.682-.9552 2.3283-.9552.16 0 .2862.0577.3633.2032.459.8656-3.1623 1.8149-3.1916 1.8224-.5958.1535-1.6605.336-2.6975.336-.6351 0-1.261-.0409-1.7638-.2599-.2949-.1472-.5488-.3516-.7383-.625-.0411-.0682-.1026-.1476-.1426-.205-.5726-.9679-.455-1.7371.4903-2.676 1.0254-1.0182 1.6212-2.508 1.6212-2.508s.2044-.7891.666-.7891a.4318.4318 0 0 1 .0665.0039c.5078.0796.88 1.3732-.1836 2.1642-.7074.5257-.3797.9395.039.9395.211 0 .445-.1047.5821-.3535.4092-.7426 1.5264-2.6527 2.1056-3.0178.5588-.3524.99-.1816.8497.5918z"/></svg>Demo</a>
+  </nav>
+</header>
+
+<nav class="rail" aria-label="Sections"></nav>
+
+<main>
+  <!-- A part can be switched off with the hidden attribute (app.js then skips it and the side rail follows).
+       The teaser starts muted; its controls turn the sound on. -->
+  <section class="teaser"><video id="teaser" muted loop playsinline controls preload="metadata"></video>
+    <p class="tldr"><strong>TL;DR</strong><span><span>4LC caches visual representations of static and dynamic content for reuse across times and viewpoints.</span><span>Built on it, a single 4LC-Video model enables efficient conditioning for multi-task video generation.</span></span></p>
+    <a class="more" href="#s-readout" aria-label="Scroll to content"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a>
+  </section>
+
+
+  <div class="results part" data-part="Results">
+  <section id="s-readout" data-nav="From Cache Readout to Video">
+    <h2>From Cache Readout to Video</h2>
+    <div class="quad" id="readout"></div>
+  </section>
+
+  <section id="s-camera" data-nav="Camera Control">
+    <h2>Camera Control</h2>
+    <div class="carousel" id="camera"></div>
+  </section>
+
+  <section id="s-time" data-nav="Time Control">
+    <h2>Time Control</h2>
+    <div class="carousel" id="time"></div>
+  </section>
+
+  <section id="s-multiview" data-nav="Single View to Multiple Views">
+    <h2>Single View to Multiple Views</h2>
+    <div class="carousel" id="multiview"></div>
+  </section>
+
+  <section id="s-i2v" data-nav="Image to Video">
+    <h2>Image to Video</h2>
+    <div class="carousel" id="i2v"></div>
+  </section>
+
+  <section id="s-i2w" data-nav="Image to World">
+    <h2>Image to World</h2>
+    <div class="carousel" id="i2w"></div>
+  </section>
+
+  <section id="s-edit" data-nav="Video Editing">
+    <h2>Video Editing</h2>
+    <div class="carousel" id="edit"></div>
+  </section>
+  </div>
+
+  <div class="efficiency part band" data-part="Efficiency">
+  <section id="cost" data-nav="Condition Acquisition">
+    <h2>Condition Acquisition</h2>
+    <div class="cost">
+      <div class="accum">
+        <p class="cost-head">One segment: share of end-to-end generation time spent on condition acquisition</p>
+        <div class="bar-row"><span>NeoVerse</span><div class="bar"><i class="cond" style="--w:14.9%"></i><i class="rest" style="--w:85.1%"></i></div><span>2.75 s of 18.47 s</span></div>
+        <div class="bar-row"><span>4LC</span><div class="bar"><i class="cond" style="--w:0.25%"></i><i class="rest" style="--w:87.4%"></i></div><span>0.04 s of 16.19 s</span></div>
+        <p class="legend"><i class="cond"></i>Condition acquisition<i class="rest"></i>Rest of generation</p>
+      </div>
+      <p class="fact"><strong><small>up to</small>68.5&times;</strong>faster condition acquisition</p>
+      <p class="fact"><strong>12.6&times;</strong>lower peak GPU memory</p>
+      <div class="accum wide-row">
+        <label class="cost-head" for="segments">Long-horizon: condition acquisition adds up over <output id="seg-n">8</output> segments</label>
+        <input type="range" id="segments" min="1" max="30" value="8" aria-label="Number of segments">
+        <div class="bar-row"><span>NeoVerse</span><div class="bar"><i class="cond" id="acc-nv"></i></div><span id="acc-nv-n"></span></div>
+        <div class="bar-row"><span>4LC</span><div class="bar"><i class="cond" id="acc-ours"></i></div><span id="acc-ours-n"></span></div>
+      </div>
+      <p class="note">All timings: 81-frame segments at 560&times;336 on the same Wan2.1 backbone.</p>
+    </div>
+  </section>
+
+  <section id="s-compare" data-nav="Comparison with NeoVerse">
+    <h2>Comparison with NeoVerse</h2>
+    <div class="carousel" id="compare"></div>
+  </section>
+  </div>
+
+  <div class="method part" data-part="Method">
+  <section id="abstract" data-nav="Abstract">
+    <h2>Abstract</h2>
+    <p class="abstract">For video generation in dynamic world modeling, observed static and dynamic content should be efficiently reused to provide conditions for repeated generation at different times and viewpoints. We introduce 4LC, a 4D latent cache with composite visual representations and a flexible spatiotemporal access interface. As a latent cache, 4LC directly reuses visual representations of static and dynamic content to provide generation conditions, avoiding per-request RGB rendering and re-encoding. Building on 4LC, a single 4LC-Video model handles camera control, temporal control, novel-view synthesis, scene revisits and long-term generation without task-specific fine-tuning.</p>
+    <figure class="fig">
+      <img src="assets/method/Fig1-teaser.webp" width="2400" height="1543" loading="lazy" alt="Overview of 4LC: the cache, cache-level generation, condition-acquisition cost and multi-task results">
+      <figcaption><b>Overview of 4LC.</b> <b>(a)</b> Static and dynamic scene content is retained in multiple visual representations for reuse across time and viewpoint requests. <b>(b)</b> Non-cache pipelines render and re-encode a reconstructed scene for each request; 4LC encodes source observations once and reads out the cache for later requests. <b>(c)</b> With the same Wan2.1 VAE, 4LC needs less time and peak GPU memory to acquire conditions than 4DGS and RGB point clouds. <b>(d)</b> A single 4LC-Video model performs well across five video generation tasks.</figcaption>
+    </figure>
+  </section>
+
+  <section id="s-cache" data-nav="4D Latent Cache">
+    <h2>4D Latent Cache</h2>
+    <figure class="fig">
+      <img src="assets/method/Fig2-4lc-framework.webp" width="2400" height="833" loading="lazy" alt="Architecture of 4LC: construction, readout and composition">
+      <figcaption><b>Architecture of 4LC.</b> <b>(a) Construction</b> binds visual representations from multiple encoders to shared geometry and motion in one cache entry. <b>(b) Readout</b> propagates the entry to a requested time and projects it through a target camera, yielding readout features and coverage masks. <b>(c) Composition</b> fills uncovered regions with readouts from further entries.</figcaption>
+    </figure>
+  </section>
+
+  <section id="s-video" data-nav="4LC-Video">
+    <h2>4LC-Video</h2>
+    <div class="duo">
+      <div class="duo-table">
+        <p class="cap"><b>Task configurations for 4LC-Video.</b> Requests use one entry <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝒞</mi><mi>q</mi></msub></mrow><annotation encoding="application/x-tex">\mathcal C_q</annotation></semantics></math> or selected entries from <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝒞</mi></mrow><annotation encoding="application/x-tex">\mathcal C</annotation></semantics></math>. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover accent="true"><mi>t</mi><mo>ˉ</mo></mover><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">\bar t_j</annotation></semantics></math> preserves the source or default single-image timeline, and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover accent="true"><mi mathvariant="normal">Γ</mi><mo>ˉ</mo></mover><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">\bar\Gamma_j</annotation></semantics></math> the source camera trajectory. Scene revisits use one readout along a camera path that returns to its start.</p>
+        <table class="tasks">
+          <thead><tr><th scope="col">Task</th><th scope="col">Initial<br>frames</th><th scope="col">Target request<br><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msub><mi>t</mi><mi>j</mi></msub><mo separator="true">,</mo><msub><mi mathvariant="normal">Γ</mi><mi>j</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(t_j,\Gamma_j)</annotation></semantics></math></th><th scope="col">Condition<br>source</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Camera control</th><td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">{</mo><msub><mi>𝐈</mi><mi>k</mi></msub><msubsup><mo stretchy="false">}</mo><mrow><mi>k</mi><mo>=</mo><mn>0</mn></mrow><mrow><mi>K</mi><mo>−</mo><mn>1</mn></mrow></msubsup></mrow><annotation encoding="application/x-tex">\{\mathbf I_k\}_{k=0}^{K-1}</annotation></semantics></math></td><td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msub><mover accent="true"><mi>t</mi><mo>ˉ</mo></mover><mi>j</mi></msub><mo separator="true">,</mo><msub><mi mathvariant="normal">Γ</mi><mi>j</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(\bar t_j,\Gamma_j)</annotation></semantics></math></td><td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝒞</mi><mi>q</mi></msub></mrow><annotation encoding="application/x-tex">\mathcal C_q</annotation></semantics></math></td></tr>
+            <tr><th scope="row">Temporal control</th><td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">{</mo><msub><mi>𝐈</mi><mi>k</mi></msub><msubsup><mo stretchy="false">}</mo><mrow><mi>k</mi><mo>=</mo><mn>0</mn></mrow><mrow><mi>K</mi><mo>−</mo><mn>1</mn></mrow></msubsup></mrow><annotation encoding="application/x-tex">\{\mathbf I_k\}_{k=0}^{K-1}</annotation></semantics></math></td><td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msub><mi>t</mi><mi>j</mi></msub><mo separator="true">,</mo><msub><mover accent="true"><mi mathvariant="normal">Γ</mi><mo>ˉ</mo></mover><mi>j</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(t_j,\bar\Gamma_j)</annotation></semantics></math></td><td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝒞</mi><mi>q</mi></msub></mrow><annotation encoding="application/x-tex">\mathcal C_q</annotation></semantics></math></td></tr>
+            <tr><th scope="row">Novel-view synthesis</th><td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝐈</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">\mathbf I_0</annotation></semantics></math></td><td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msub><mover accent="true"><mi>t</mi><mo>ˉ</mo></mover><mi>j</mi></msub><mo separator="true">,</mo><msub><mi mathvariant="normal">Γ</mi><mi>j</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(\bar t_j,\Gamma_j)</annotation></semantics></math></td><td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝒞</mi><mi>q</mi></msub></mrow><annotation encoding="application/x-tex">\mathcal C_q</annotation></semantics></math></td></tr>
+            <tr><th scope="row">Scene revisits</th><td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝐈</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">\mathbf I_0</annotation></semantics></math></td><td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msub><mover accent="true"><mi>t</mi><mo>ˉ</mo></mover><mi>j</mi></msub><mo separator="true">,</mo><msub><mi mathvariant="normal">Γ</mi><mi>j</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(\bar t_j,\Gamma_j)</annotation></semantics></math></td><td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝒞</mi><mi>q</mi></msub></mrow><annotation encoding="application/x-tex">\mathcal C_q</annotation></semantics></math></td></tr>
+            <tr><th scope="row">Long-term generation</th><td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝐈</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">\mathbf I_0</annotation></semantics></math></td><td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msub><mover accent="true"><mi>t</mi><mo>ˉ</mo></mover><mi>j</mi></msub><mo separator="true">,</mo><msub><mi mathvariant="normal">Γ</mi><mi>j</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(\bar t_j,\Gamma_j)</annotation></semantics></math></td><td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝒞</mi></mrow><annotation encoding="application/x-tex">\mathcal C</annotation></semantics></math></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <figure class="fig duo-fig">
+        <img src="assets/method/Fig3-4lc-video.webp" width="2400" height="2013" loading="lazy" alt="4LC-Video framework">
+        <figcaption><b>4LC-Video framework.</b> The condition adapter aligns readouts to the Wan2.1 VAE latent grid and fuses them with masks and camera rays for the control branch. Generated observations extend the cache.</figcaption>
+      </figure>
+    </div>
+  </section>
+  </div>
+
+  <section id="bibtex" data-nav="BibTeX">
+    <h2>BibTeX</h2>
+    <div class="bib"><button class="copy" type="button" aria-label="Copy BibTeX"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span>Copy</span></button><pre><code>@article{zhang2026fourlc,
+  title   = {4LC: 4D Latent Cache for Efficient Conditioning in Dynamic World Modeling},
+  author  = {Zhang, Jianhui and Lin, Zuyao and Xu, Pengxin and Wang, Jingdong and Chen, Xingyu},
+  journal = {arXiv preprint arXiv:XXXX.XXXXX},
+  year    = {2026}
+}</code></pre></div>
+  </section>
+</main>
+
+<footer>
+  <p>All results on this page are generated by 4LC. Input videos and images are from <a href="https://www.pexels.com" target="_blank" rel="noopener noreferrer">Pexels</a>; robot clips from <a href="https://huggingface.co/lerobot" target="_blank" rel="noopener noreferrer">LeRobot</a> and <a href="https://huggingface.co/unitreerobotics" target="_blank" rel="noopener noreferrer">Unitree</a>.</p>
+  <!-- Filled by app.js from content.json "credits" (website-library/sources.yaml); hidden sections are left out. -->
+  <details class="credits" id="credits">
+    <summary>Sources &amp; Credits</summary>
+    <p class="credits-note">Input material of each case, linked to its original page. Pexels items are used under the <a href="https://www.pexels.com/license/" target="_blank" rel="noopener noreferrer">Pexels License</a>; robot clips are Apache-2.0 datasets on Hugging Face. All outputs are generated by 4LC.</p>
+    <div id="credit-list"></div>
+  </details>
+</footer>
+<script src="app.js?v=1013003130"></script>
+</body>
+</html>
