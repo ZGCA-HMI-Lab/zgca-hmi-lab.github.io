@@ -10,7 +10,7 @@
   --static: #7d97a8;
   --dynamic: #de933e;
   --rest: #c5e1db;
-  --col: 62rem;
+  --col: 56rem;
 }
 * { box-sizing: border-box; }
 p { text-wrap: pretty; }
@@ -212,7 +212,7 @@ footer p { margin: 0 0 1rem; }
 /* Carousel: one example block per slide, neighbours peek in at the sides */
 /* The carousel is wider than the text column so the shown block keeps the column's width
    while its neighbours peek in at the sides (slide 88% of 70.5rem = 62rem). */
-:root { --sw: min(72rem, 86vw); }
+:root { --sw: min(56rem, 86vw); }
 [hidden] { display: none !important; }  /* parts switched off in index.html */  /* width of one example block: about two native 560 px clips across */
 .carousel { width: min(calc(100vw - 2rem), 80rem); margin-left: 50%; translate: -50% 0; }
 .stage { position: relative; }
@@ -306,9 +306,9 @@ html { scroll-padding-top: 1.5rem; }
 .rail { display: none; }
 @media (min-width: 1400px) {
   /* Content stays centred; carousels give up their side peeks until the rail has room. */
-  /* Leave the rail its room: the block grows from 62rem to 72rem as the window widens. */
-  :root { --sw: min(72rem, max(62rem, calc(100vw - 28rem))); }
-  .carousel { width: max(var(--sw), min(calc(100vw - 30rem), 80rem)); }
+  /* 56rem content; carousels may grow to 64rem so the neighbouring slides peek in. */
+  :root { --sw: 56rem; }
+  .carousel { width: max(var(--sw), min(calc(100vw - 30rem), 64rem)); }
   .arrow.prev { left: max(calc((100% - var(--sw)) / 2 - 1.5rem), .75rem); }
   .arrow.next { right: max(calc((100% - var(--sw)) / 2 - 1.5rem), .75rem); }
   .rail {
