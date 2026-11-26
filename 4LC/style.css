@@ -325,12 +325,12 @@ video.montage { border-radius: 4px; background: #fff; }
 .band video, .band .still { background: #e9ecef; }
 .band pre { background: #fff; }
 
-/* Side rail: the parts are nodes (large titles, grey until reached); the current part opens
-   to list its sections underneath. On wide screens the page shifts right to make room. */
+/* Side rail: the current part opens to list its sections. The rail fits in the
+   left margin while the content stays centred. */
 html { scroll-padding-top: 1.5rem; }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 .rail { display: none; }
-@media (min-width: 1400px) {
+@media (min-width: 1280px) {
   /* Content stays centred; carousels give up their side peeks until the rail has room. */
   /* 56rem content; carousels may grow to 64rem so the neighbouring slides peek in. */
   :root { --sw: 56rem; }
@@ -338,8 +338,8 @@ html { scroll-padding-top: 1.5rem; }
   .arrow.prev { left: max(calc((100% - var(--sw)) / 2 - 1.5rem), .75rem); }
   .arrow.next { right: max(calc((100% - var(--sw)) / 2 - 1.5rem), .75rem); }
   .rail {
-    display: block; position: fixed; z-index: 5; top: 50%; left: max(1.5rem, calc(50vw - 37.5rem - 14rem));
-    width: 12rem; translate: -1rem -50%; opacity: 0; visibility: hidden;
+    display: block; position: fixed; z-index: 5; top: 50%; left: max(1rem, calc(50vw - 37.5rem - 14rem));
+    width: min(12rem, calc(50vw - 30rem)); translate: -1rem -50%; opacity: 0; visibility: hidden;
     transition: opacity .45s ease, translate .6s cubic-bezier(.2, .7, .1, 1), visibility 0s linear .45s;
   }
   .rail.shown { opacity: 1; visibility: visible; translate: 0 -50%; transition-delay: 0s; }
@@ -357,7 +357,7 @@ html { scroll-padding-top: 1.5rem; }
 .rail .fill { height: var(--fill, 0); background: var(--brand); transition: height .5s cubic-bezier(.3, .7, .2, 1); }
 .rail ol > li + li { margin-top: 1.6rem; }
 .rail .part-name {
-  position: relative; display: block; color: #a9b0b8; font-size: 1.5rem; font-weight: 600; line-height: 1.15;
+  position: relative; display: block; color: #a9b0b8; font-size: clamp(1.25rem, calc(2vw - .25rem), 1.5rem); font-weight: 600; line-height: 1.15;
   letter-spacing: -.02em; text-decoration: none; transition: color .3s ease, translate .3s ease;
 }
 .rail .part-name::before {
@@ -384,7 +384,7 @@ html { scroll-padding-top: 1.5rem; }
 .rail ul { min-height: 0; overflow: hidden; list-style: none; margin: 0 0 0 -1.25rem; padding: 0 0 0 1.25rem; }
 .rail ul li:first-child { padding-top: .75rem; }
 .rail ul a {
-  display: block; padding: .32rem 0; color: var(--muted); font-size: .9375rem; line-height: 1.4; text-decoration: none;
+  display: block; padding: .32rem .5rem .32rem 0; color: var(--muted); font-size: .9375rem; line-height: 1.4; text-decoration: none;
   text-wrap: balance; transition: color .25s ease, translate .25s ease;
 }
 .rail ul a:hover { color: var(--ink); translate: .25rem 0; }
@@ -426,7 +426,7 @@ h2 + .fig { margin-top: 1.6rem; }
 
 /* Blocks a little wider than the text column (like the carousels): time columns, image wall */
 :root { --wide: min(64rem, calc(100vw - 2rem)); }
-@media (min-width: 1400px) { :root { --wide: max(var(--sw), min(calc(100vw - 30rem), 64rem)); } }
+@media (min-width: 1280px) { :root { --wide: max(var(--sw), min(calc(100vw - 30rem), 64rem)); } }
 
 /* Crossfade: a switched example fades in over the previous one */
 .swap { display: grid; }
