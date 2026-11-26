@@ -349,19 +349,6 @@ fetch("content.json", { cache: "no-cache" }).then((r) => r.json()).then((c) => {
   // The main video waits on its first frame until the viewer presses play.
   if (!t.hidden) { t.muted = true; t.poster = bust(c.teaser.poster); t.src = bust(c.teaser.video); }
 
-  // Long-horizon: condition-acquisition time per segment from the paper (NeoVerse 2.75 s, 4LC 0.04 s),
-  // times the number of segments; NeoVerse pays it again for every segment.
-  const seg = $("segments"), nv = 2.75, ours = 0.04;
-  const accum = () => {
-    const k = +seg.value, max = +seg.max * nv;
-    $("seg-n").value = k;
-    $("acc-nv").style.setProperty("--w", (k * nv / max) * 100 + "%");
-    $("acc-ours").style.setProperty("--w", (k * ours / max) * 100 + "%");
-    $("acc-nv-n").textContent = `${(k * nv).toFixed(1)} s condition acquisition`;
-    $("acc-ours-n").textContent = `${(k * ours).toFixed(2)} s condition acquisition`;
-  };
-  seg.addEventListener("input", accum); accum();
-
   reps = c.readout_reps || [{ key: "rgb", label: "Cache", file: "condition.mp4" }];
   const ro = $("readout");
   ro.before(repTabs(reps, (k) => { rep = k; wipes.forEach((f) => f()); }));
@@ -686,34 +673,13 @@ document.querySelectorAll(".bib").forEach(box => {
   });
 });
 
-// Motion: sections fade up once as they come into view; the condition-acquisition bars grow and
-// the two factors count up; the 4LC mark's outlines drift apart as the first screen scrolls away.
+// Motion: sections fade up once; the 4LC mark drifts apart as the first screen scrolls away.
 if (!RM) {
   const rise = new IntersectionObserver((es) => {
     // Shown once in view, or once scrolled past (a fast scroll or a jump can skip the moment it enters).
     for (const e of es) if (e.isIntersecting || e.boundingClientRect.top < 0) { e.target.classList.add("in"); rise.unobserve(e.target); }
   }, { rootMargin: "0px 0px -8% 0px" });
   document.querySelectorAll("main section").forEach((s) => { s.classList.add("rise"); rise.observe(s); });
-
-  const cost = document.querySelector(".cost");
-  if (cost) {
-    const nums = [...cost.querySelectorAll(".num")].map((n) => [n, parseFloat(n.textContent), (n.textContent.split(".")[1] || "").length]);
-    cost.classList.add("pre");
-    nums.forEach(([n, , d]) => { n.textContent = (0).toFixed(d); });
-    const go = new IntersectionObserver((es) => {
-      if (!es.some((e) => e.isIntersecting || e.boundingClientRect.top < 0)) return;
-      go.disconnect();
-      cost.classList.add("grow"); cost.classList.remove("pre");
-      setTimeout(() => cost.classList.remove("grow"), 1400);
-      const t0 = performance.now(), dur = 1200;
-      (function count(t) {
-        const k = Math.max(0, Math.min(1, (t - t0) / dur)), ease = 1 - Math.pow(1 - k, 3);
-        nums.forEach(([n, to, d]) => { n.textContent = (to * ease).toFixed(d); });
-        if (k < 1) requestAnimationFrame(count);
-      })(t0);
-    }, { threshold: 0.35 });
-    go.observe(cost);
-  }
 
   const hero = document.querySelector(".hero");
   let queued = false;

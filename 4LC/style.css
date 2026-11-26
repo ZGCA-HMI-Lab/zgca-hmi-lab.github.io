@@ -10,7 +10,6 @@
   --band: #f2f4f6;  /* grey sections; a hairline marks where each band starts and ends */
   --static: #7d97a8;
   --dynamic: #de933e;
-  --rest: #c5e1db;
   --col: 56rem;
 }
 * { box-sizing: border-box; }
@@ -171,31 +170,6 @@ section > .quad { margin-left: 50%; translate: -50% 0; }  /* wider than the text
 /* Long horizon */
 .long { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: .5rem; margin-bottom: 1rem; align-items: start; }
 
-/* Cost */
-.cost { display: grid; grid-template-columns: minmax(0, 2.2fr) auto auto; gap: 1.6rem 2.5rem; align-items: center; }
-.accum { margin: 0; }
-.accum.wide-row { grid-column: 1 / -1; margin-top: .6rem; }
-.cost-head { display: block; margin: 0 0 .7rem; font-weight: 500; font-size: .9375rem; }
-.accum input { display: block; }
-.accum label { display: block; font-weight: 500; margin-bottom: .3rem; font-size: .9375rem; }
-.accum input { width: min(22rem, 100%); accent-color: var(--brand); margin: 0 0 .8rem; }
-.accum .bar i { transition: width .3s ease; }
-.bar-row { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr) 13rem; gap: .8rem; align-items: center; margin-bottom: .55rem; font-size: .9375rem; }
-.bar-row span:last-child { color: var(--muted); text-align: right; }
-.bar { height: .7rem; background: var(--soft); border-radius: 3px; overflow: hidden; }
-.bar { display: flex; }
-.bar i { display: block; height: 100%; width: var(--w); background: var(--dynamic); transition: width .3s ease; }
-.bar i.cond { min-width: 3px; }
-.bar i.rest { background: var(--rest); }
-.cost.pre .bar i { width: 0; }
-.cost.grow .bar i { transition: width 1.1s cubic-bezier(.2, .7, .1, 1); }
-.legend { margin: .3rem 0 0; color: var(--muted); font-size: .875rem; }
-.legend i { display: inline-block; width: .7em; height: .7em; background: var(--dynamic); border-radius: 2px; margin: 0 .4em 0 0; vertical-align: -.05em; }
-.legend i.rest { background: var(--rest); margin-left: 1.2em; }
-.cost .note { grid-column: 1 / -1; margin: 0; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .875rem; }
-.fact { margin: 0; color: var(--muted); font-size: .9375rem; line-height: 1.3; }
-.fact strong { display: block; color: var(--ink); font-size: 2.4rem; font-weight: 600; letter-spacing: -.03em; line-height: 1.05; }
-
 /* Compare */
 .cmp-head { margin: 0 0 .4rem; font-size: 1rem; font-weight: 600; }
 .cmp-head.ours { color: var(--brand); }
@@ -225,10 +199,6 @@ footer p { margin: 0 0 1rem; }
   .grid.two, .mv, .long { grid-template-columns: 1fr; }
   .row.r4 { grid-template-columns: 1fr 1fr; }
   .row.r3 { grid-template-columns: 1fr; }
-  .cost { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-  .cost .accum { grid-column: 1 / -1; }
-  .bar-row { grid-template-columns: 4.5rem minmax(0, 1fr); }
-  .bar-row span:last-child { grid-column: 2; text-align: left; margin-top: -.3rem; }
 }
 
 /* Carousel: one example block per slide, neighbours peek in at the sides */
@@ -321,7 +291,6 @@ footer p { margin: 0 0 1rem; }
 video.montage { border-radius: 4px; background: #fff; }
 
 /* Inside grey bands */
-.band .bar { background: #e6e9ed; }
 .band video, .band .still { background: #e9ecef; }
 .band pre { background: #fff; }
 
@@ -422,7 +391,6 @@ h2 + .fig { margin-top: 1.6rem; }
 @media (max-width: 959px) {
   .duo-fig { order: -1; }
 }
-.fact strong small { font-size: .4em; font-weight: 500; color: var(--muted); margin-right: .3em; letter-spacing: 0; }
 
 /* Blocks a little wider than the text column (like the carousels): time columns, image wall */
 :root { --wide: min(64rem, calc(100vw - 2rem)); }

@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=1014143000">
+<link rel="stylesheet" href="style.css?v=1126">
 <link rel="icon" type="image/svg+xml" href="4lc.svg">
 </head>
 <body>
@@ -79,27 +79,6 @@
   </div>
 
   <div class="comparison part band" data-part="Comparison">
-  <section id="cost" data-nav="Condition Acquisition">
-    <h2>Condition Acquisition</h2>
-    <div class="cost">
-      <div class="accum">
-        <p class="cost-head">One segment: share of end-to-end generation time spent on condition acquisition</p>
-        <div class="bar-row"><span>NeoVerse</span><div class="bar"><i class="cond" style="--w:14.9%"></i><i class="rest" style="--w:85.1%"></i></div><span>2.75 s of 18.47 s</span></div>
-        <div class="bar-row"><span>4LC</span><div class="bar"><i class="cond" style="--w:0.25%"></i><i class="rest" style="--w:87.4%"></i></div><span>0.04 s of 16.19 s</span></div>
-        <p class="legend"><i class="cond"></i>Condition acquisition<i class="rest"></i>Rest of generation</p>
-      </div>
-      <p class="fact"><strong><small>up to</small><span class="num">68.5</span>&times;</strong>faster condition acquisition</p>
-      <p class="fact"><strong><span class="num">12.6</span>&times;</strong>lower peak GPU memory</p>
-      <div class="accum wide-row">
-        <label class="cost-head" for="segments">Long-horizon: condition acquisition adds up over <output id="seg-n">8</output> segments</label>
-        <input type="range" id="segments" min="1" max="30" value="8" aria-label="Number of segments">
-        <div class="bar-row"><span>NeoVerse</span><div class="bar"><i class="cond" id="acc-nv"></i></div><span id="acc-nv-n"></span></div>
-        <div class="bar-row"><span>4LC</span><div class="bar"><i class="cond" id="acc-ours"></i></div><span id="acc-ours-n"></span></div>
-      </div>
-      <p class="note">All timings: 81-frame segments at 560&times;336 on the same Wan2.1 backbone.</p>
-    </div>
-  </section>
-
   <section id="s-compare" data-nav="Comparison with Baseline">
     <h2>Comparison with Baseline</h2>
     <div class="carousel" id="compare"></div>
@@ -111,7 +90,7 @@
     <h2>Abstract</h2>
     <p class="abstract">For video generation in dynamic world modeling, observed static and dynamic content should be efficiently reused to provide conditions for repeated generation at different times and viewpoints. We introduce 4LC, a 4D latent cache with composite visual representations and a flexible spatiotemporal access interface. As a latent cache, 4LC directly reuses visual representations of static and dynamic content to provide generation conditions, avoiding per-request RGB rendering and re-encoding. Building on 4LC, a single 4LC-Video model handles camera control, temporal control, novel-view synthesis, scene revisits and long-term generation without task-specific fine-tuning.</p>
     <figure class="fig">
-      <img src="assets/method/Fig1-teaser.webp" width="2400" height="1543" loading="lazy" alt="Overview of 4LC: the cache, cache-level generation, condition-acquisition cost and multi-task results">
+      <img src="assets/method/Fig1-teaser.webp?v=1126" width="2400" height="1281" loading="lazy" alt="Overview of 4LC: the cache, cache-level generation, condition-acquisition cost and multi-task results">
       <figcaption><b>Overview of 4LC.</b> <b>(a)</b> Static and dynamic scene content is retained in multiple visual representations for reuse across time and viewpoint requests. <b>(b)</b> Non-cache pipelines render and re-encode a reconstructed scene for each request; 4LC encodes source observations once and reads out the cache for later requests. <b>(c)</b> With the same Wan2.1 VAE, 4LC needs less time and peak GPU memory to acquire conditions than 4DGS and RGB point clouds. <b>(d)</b> A single 4LC-Video model performs well across five video generation tasks.</figcaption>
     </figure>
   </section>
@@ -168,6 +147,6 @@
     <div id="credit-list"></div>
   </details>
 </footer>
-<script src="app.js?v=1014143000"></script>
+<script src="app.js?v=1126"></script>
 </body>
 </html>
